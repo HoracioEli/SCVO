@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<form class="container-fluid my-3">
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Buscar por ASEGURADO - CUIT - NRO. POLIZA (formato completo o 04-750)">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Buscar</button>
+        </div>
+    </div>
+</form>
+
+<table class="table table-light">
+    <thead>
+        <tr>
+            <th>Poliza</th>
+            <th>Asegurado</th>
+            <th>CUIT</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in polizas %}
+        <tr>
+            <td>{{p.poliza}}</td>
+            <td>{{p.asegurado}}</td>
+            <td>{{p.cuit}}</td>
+            <td>{{p.fecha|date:"d-m-Y"}}</td>
+           
+        </tr>
+        {% endfor %}
+       
+    </tbody>
+</table>
+<!-- Crear una tabla que contenga los siguientes campos: poliza, asegurado, cuit y fecha utilizando las clases de Bootstrap     -->
+
+
+{% endblock %}
